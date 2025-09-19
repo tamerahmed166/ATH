@@ -1,172 +1,192 @@
-# Portfolio Tracker
+# 📱 Portfolio Tracker - متتبع المحفظة المالية
 
-A simple Flutter application focused on tracking portfolio assets and ATH (All Time High) alerts for stocks, oil, gold, and currencies.
+تطبيق Flutter بسيط يركز على تتبع المحفظة المالية والتنبيهات عند الوصول لأعلى سعر تاريخي (ATH) للأسهم والنفط والذهب والعملات.
 
-## Features
+## ✨ المميزات الأساسية
 
-### Core Features (MVP)
-- **Asset Management**: Add and track stocks, crypto, commodities, and currencies
-- **Real-time Prices**: Live price updates from Yahoo Finance API
-- **ATH Alerts**: Push notifications when assets reach all-time highs
-- **Custom Price Alerts**: Set alerts for specific price levels
-- **Portfolio Overview**: Track total portfolio value and daily changes
+### 🎯 المميزات الأساسية (MVP)
+- **إدارة الأصول**: إضافة وتتبع الأسهم والكريبتو والسلع والعملات
+- **الأسعار المباشرة**: تحديث الأسعار المباشر من Yahoo Finance API
+- **تنبيهات ATH**: إشعارات عند وصول الأصول لأعلى سعر تاريخي
+- **تنبيهات مخصصة**: تحديد تنبيهات لأسعار محددة
+- **نظرة عامة على المحفظة**: تتبع القيمة الإجمالية والتغييرات اليومية
 
-### User Interface
-- **Portfolio Tab**: Main dashboard with asset list and portfolio summary
-- **Markets Tab**: Browse and add assets by category (Stocks, Crypto, Commodities, Forex)
-- **Alerts Tab**: Manage active and triggered alerts
+### 🖥️ واجهة المستخدم
+- **تبويب المحفظة**: لوحة التحكم الرئيسية مع قائمة الأصول وملخص المحفظة
+- **تبويب الأسواق**: تصفح وإضافة الأصول حسب الفئة (أسهم، كريبتو، سلع، فوركس)
+- **تبويب التنبيهات**: إدارة التنبيهات النشطة والمُشغلة
 
-## Technology Stack
+## 🛠️ التقنيات المستخدمة
 
-- **Frontend**: Flutter (Cross-platform mobile)
-- **Backend**: Firebase (Authentication, Firestore, Cloud Functions)
-- **Data APIs**: Yahoo Finance API for real-time prices
-- **Notifications**: Firebase Cloud Messaging + Local notifications
+- **Frontend**: Flutter (تطبيق متعدد المنصات)
+- **Backend**: Firebase (المصادقة، Firestore، Cloud Functions)
+- **APIs**: Yahoo Finance API للأسعار المباشرة
+- **الإشعارات**: Firebase Cloud Messaging + الإشعارات المحلية
 
-## Setup Instructions
+## 🚀 خطوات التشغيل
 
-### Prerequisites
-- Flutter SDK (3.0.0 or higher)
-- Android Studio / Xcode
-- Firebase project
-
-### 1. Clone and Install Dependencies
+### 1. تثبيت Flutter SDK
 ```bash
-git clone <repository-url>
-cd portfolio_tracker
+# تحميل Flutter من الموقع الرسمي
+# https://flutter.dev/docs/get-started/install/windows
+
+# إضافة Flutter إلى PATH
+# C:\flutter\bin
+```
+
+### 2. تثبيت التبعيات
+```bash
 flutter pub get
 ```
 
-### 2. Firebase Setup
+### 3. إعداد Firebase
+1. إنشاء مشروع Firebase جديد
+2. تفعيل Authentication و Firestore و Cloud Messaging
+3. تحميل ملفات التكوين:
+   - `google-services.json` → `android/app/`
+   - `GoogleService-Info.plist` → `ios/Runner/`
 
-#### Create Firebase Project
-1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Create a new project named "Portfolio Tracker"
-3. Enable Authentication, Firestore Database, and Cloud Messaging
-
-#### Android Setup
-1. Add Android app to Firebase project
-2. Download `google-services.json` and place in `android/app/`
-3. Update `android/app/build.gradle`:
-```gradle
-apply plugin: 'com.google.gms.google-services'
-```
-
-#### iOS Setup
-1. Add iOS app to Firebase project
-2. Download `GoogleService-Info.plist` and place in `ios/Runner/`
-3. Update `ios/Runner/Info.plist` with notification permissions
-
-### 3. API Configuration
-The app uses Yahoo Finance API for real-time data. No API key required for basic usage.
-
-### 4. Run the Application
+### 4. تشغيل التطبيق
 ```bash
-# For Android
+# للأندرويد
 flutter run
 
-# For iOS
+# للآيفون (Mac فقط)
 flutter run -d ios
 ```
 
-## Project Structure
+## 📱 تثبيت التطبيق على الأجهزة
+
+### الأندرويد
+```bash
+# بناء APK
+flutter build apk --release
+
+# تثبيت على الجهاز
+adb install build/app/outputs/flutter-apk/app-release.apk
+```
+
+### الآيفون
+```bash
+# بناء للآيفون
+flutter build ios --release
+
+# فتح في Xcode
+open ios/Runner.xcworkspace
+```
+
+## 🔧 إعداد GitHub
+
+### 1. إنشاء Repository
+```bash
+git init
+git add .
+git commit -m "Initial commit: Portfolio Tracker MVP"
+git remote add origin https://github.com/yourusername/portfolio-tracker.git
+git push -u origin main
+```
+
+### 2. إعداد GitHub Actions
+- تم إعداد CI/CD تلقائياً
+- بناء تلقائي للأندرويد والآيفون
+- نشر تلقائي على Firebase
+
+## 📊 هيكل المشروع
 
 ```
 lib/
-├── main.dart                 # App entry point
-├── models/                  # Data models
-│   ├── asset.dart          # Asset model
-│   └── alert.dart          # Alert model
-├── providers/              # State management
+├── main.dart                 # نقطة دخول التطبيق
+├── models/                   # نماذج البيانات
+│   ├── asset.dart           # نموذج الأصول
+│   └── alert.dart           # نموذج التنبيهات
+├── providers/                # إدارة الحالة
 │   ├── portfolio_provider.dart
 │   └── alerts_provider.dart
-├── screens/                # UI screens
-│   ├── main_screen.dart    # Bottom navigation
+├── screens/                  # شاشات التطبيق
+│   ├── main_screen.dart     # التنقل الرئيسي
 │   ├── portfolio_screen.dart
 │   ├── markets_screen.dart
 │   └── alerts_screen.dart
-├── services/               # API and services
-│   ├── api_service.dart    # Yahoo Finance API
+├── services/                 # الخدمات
+│   ├── api_service.dart     # Yahoo Finance API
 │   └── notification_service.dart
-└── widgets/                # Reusable widgets
+└── widgets/                  # عناصر واجهة قابلة لإعادة الاستخدام
     ├── asset_card.dart
     ├── portfolio_summary.dart
     └── alert_card.dart
 ```
 
-## Key Features Implementation
+## 🎯 المميزات الرئيسية
 
-### Real-time Price Updates
-- Yahoo Finance API integration
-- Auto-refresh every minute
-- Manual refresh capability
+### تحديث الأسعار المباشر
+- تكامل مع Yahoo Finance API
+- تحديث تلقائي كل دقيقة
+- إمكانية التحديث اليدوي
 
-### ATH Detection
-- Compares current price with 52-week high
-- Visual indicators for ATH assets
-- Automatic alert triggering
+### كشف ATH
+- مقارنة السعر الحالي مع أعلى سعر في 52 أسبوع
+- مؤشرات بصرية للأصول عند ATH
+- تشغيل تنبيهات تلقائية
 
-### Push Notifications
-- Local notifications for immediate alerts
-- Firebase Cloud Messaging for background alerts
-- Custom notification sounds and icons
+### الإشعارات
+- إشعارات محلية فورية
+- Firebase Cloud Messaging للخلفية
+- أصوات وإيقونات مخصصة
 
-### Portfolio Management
-- Add/remove assets
-- Real-time portfolio value calculation
-- Daily change tracking
-- Asset categorization
+### إدارة المحفظة
+- إضافة/إزالة الأصول
+- حساب القيمة الإجمالية للمحفظة
+- تتبع التغييرات اليومية
+- تصنيف الأصول
 
-## Future Enhancements
+## 🔮 المميزات المستقبلية
 
-### Phase 2 Features
-- **Advanced Statistics**: 24h, 7d, 1y performance metrics
-- **Technical Analysis**: RSI, Moving Averages
-- **News Integration**: Asset-related news feed
-- **Export Functionality**: PDF/Excel portfolio reports
+### المرحلة الثانية
+- **إحصائيات متقدمة**: أداء 24س، 7أيام، سنة
+- **التحليل الفني**: RSI، المتوسطات المتحركة
+- **تغذية الأخبار**: ربط الأخبار المتعلقة بكل أصل
+- **تصدير المحفظة**: تقارير PDF/Excel
 
-### Phase 3 Features
-- **Social Features**: Share portfolio performance
-- **Advanced Alerts**: Percentage change alerts, volume alerts
-- **Portfolio Analytics**: Risk analysis, diversification metrics
-- **Dark Mode**: Theme customization
+### المرحلة الثالثة
+- **المميزات الاجتماعية**: مشاركة أداء المحفظة
+- **تنبيهات متقدمة**: تنبيهات التغيير المئوي، تنبيهات الحجم
+- **تحليلات المحفظة**: تحليل المخاطر، مقاييس التنويع
+- **الوضع المظلم**: تخصيص المظهر
 
-## Development Notes
+## 🛠️ استكشاف الأخطاء
 
-### State Management
-- Uses Provider pattern for state management
-- Separate providers for portfolio and alerts
-- Reactive UI updates
+### المشاكل الشائعة
 
-### API Integration
-- Yahoo Finance API for real-time data
-- Error handling and retry logic
-- Caching for offline functionality
+1. **Flutter غير موجود**:
+   - إضافة Flutter إلى PATH
+   - إعادة تشغيل Terminal
 
-### Notification System
-- Local notifications for immediate feedback
-- Firebase Cloud Messaging for background alerts
-- Notification scheduling and management
+2. **Android SDK غير موجود**:
+   - تثبيت Android Studio
+   - تشغيل `flutter doctor --android-licenses`
 
-## Contributing
+3. **تكوين Firebase**:
+   - التأكد من وجود `google-services.json` في `android/app/`
+   - تحديث `firebase_options.dart` بتفاصيل المشروع
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+4. **أخطاء البناء**:
+   ```bash
+   flutter clean
+   flutter pub get
+   flutter run
+   ```
 
-## License
+## 📞 الدعم
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+للمشاكل والأسئلة:
+- إنشاء issue في المستودع
+- مراجعة الوثائق
+- التواصل مع فريق التطوير
 
-## Support
+## 📄 الترخيص
 
-For issues and questions:
-- Create an issue in the repository
-- Check the documentation
-- Contact the development team
+هذا المشروع مرخص تحت رخصة MIT - راجع ملف LICENSE للتفاصيل.
 
 ---
 
-**Note**: This is an MVP (Minimum Viable Product) focused on core ATH alert functionality. Additional features will be added in future releases.
+**جاهز للتشغيل!** 🚀 اتبع هذه الخطوات لتشغيل تطبيق Portfolio Tracker على الأجهزة المحمولة.

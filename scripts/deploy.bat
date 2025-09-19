@@ -1,67 +1,50 @@
 @echo off
-REM Portfolio Tracker Deployment Script for Windows
-REM This script automates the deployment process
+echo 🚀 سكريبت نشر Portfolio Tracker
+echo ================================
 
-echo 🚀 Portfolio Tracker Deployment Script
-echo ======================================
-
-REM Check if Flutter is installed
+REM التحقق من وجود Flutter
 flutter --version >nul 2>&1
 if %errorlevel% neq 0 (
-    echo [ERROR] Flutter is not installed or not in PATH
+    echo [خطأ] Flutter غير مثبت أو غير موجود في PATH
+    pause
     exit /b 1
 )
-echo [INFO] Flutter is installed
 
-REM Check if Firebase CLI is installed
-firebase --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo [WARNING] Firebase CLI not found. Installing...
-    npm install -g firebase-tools
-)
-echo [INFO] Firebase CLI is available
-
-REM Clean and get dependencies
-echo [INFO] Cleaning project...
+echo [معلومات] تنظيف المشروع...
 flutter clean
 
-echo [INFO] Getting dependencies...
+echo [معلومات] تثبيت التبعيات...
 flutter pub get
 
-echo [INFO] Dependencies installed successfully
-
-REM Build Android APK
-echo [INFO] Building Android APK...
+echo [معلومات] بناء APK...
 flutter build apk --release
 
 if exist "build\app\outputs\flutter-apk\app-release.apk" (
-    echo [INFO] Android APK built successfully
-    echo [INFO] APK location: build\app\outputs\flutter-apk\app-release.apk
+    echo [نجح] تم بناء APK بنجاح
 ) else (
-    echo [ERROR] Failed to build Android APK
+    echo [خطأ] فشل في بناء APK
+    pause
     exit /b 1
 )
 
-REM Build Android App Bundle
-echo [INFO] Building Android App Bundle...
+echo [معلومات] بناء App Bundle...
 flutter build appbundle --release
 
 if exist "build\app\outputs\bundle\release\app-release.aab" (
-    echo [INFO] Android App Bundle built successfully
-    echo [INFO] AAB location: build\app\outputs\bundle\release\app-release.aab
+    echo [نجح] تم بناء App Bundle بنجاح
 ) else (
-    echo [ERROR] Failed to build Android App Bundle
-    exit /b 1
+    echo [خطأ] فشل في بناء App Bundle
 )
 
-REM Deploy to Firebase
-echo [INFO] Deploying to Firebase...
-if exist "firebase.json" (
-    firebase deploy
-    echo [INFO] Firebase deployment completed
-) else (
-    echo [WARNING] firebase.json not found, skipping Firebase deployment
-)
+echo [معلومات] النشر مكتمل! 🎉
+echo.
+echo الملفات المتاحة:
+echo - APK: build\app\outputs\flutter-apk\app-release.apk
+echo - AAB: build\app\outputs\bundle\release\app-release.aab
+echo.
+echo يمكنك الآن:
+echo 1. تثبيت APK على الجهاز
+echo 2. رفع AAB إلى Google Play Console
+echo 3. مشاركة APK مع المستخدمين
 
-echo [INFO] Deployment completed successfully! 🎉
 pause
