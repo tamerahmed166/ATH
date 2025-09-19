@@ -1,19 +1,14 @@
+---
+layout: default
+title: 🏠 الرئيسية
+permalink: /
+---
+
 # 📱 Portfolio Tracker - متتبع المحفظة المالية
 
-<div align="center">
-
-![Portfolio Tracker](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
-
-**تطبيق Flutter بسيط يركز على تتبع المحفظة المالية والتنبيهات عند الوصول لأعلى سعر تاريخي (ATH) للأسهم والنفط والذهب والعملات**
-
-[🚀 البدء السريع](#-البدء-السريع) • [📱 المميزات](#-المميزات-الأساسية) • [🛠️ التقنيات](#️-التقنيات-المستخدمة) • [📚 الوثائق](#-الوثائق)
-
+<div class="hero-section">
+    <h1>تطبيق Flutter بسيط يركز على تتبع المحفظة المالية والتنبيهات عند الوصول لأعلى سعر تاريخي (ATH) للأسهم والنفط والذهب والعملات</h1>
 </div>
-
----
 
 ## ✨ المميزات الأساسية
 

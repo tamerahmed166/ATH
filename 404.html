@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - الصفحة غير موجودة | Portfolio Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .error-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+        
+        .btn-primary:hover {
+            background: #f8f9fa;
+            color: #764ba2;
+        }
+        
+        .suggestions {
+            margin-top: 3rem;
+            text-align: right;
+        }
+        
+        .suggestions h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .suggestions ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .suggestions li {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+        
+        .suggestions a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .suggestions a:hover {
+            border-bottom-color: white;
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-message {
+                font-size: 1.2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <div class="error-message">الصفحة غير موجودة</div>
+        <div class="error-description">
+            عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها إلى مكان آخر.
+        </div>
+        
+        <a href="/" class="btn btn-primary">🏠 العودة للرئيسية</a>
+        <a href="/docs" class="btn">📚 الوثائق</a>
+        <a href="/features" class="btn">✨ المميزات</a>
+        
+        <div class="suggestions">
+            <h3>💡 اقتراحات:</h3>
+            <ul>
+                <li><a href="/">الصفحة الرئيسية</a></li>
+                <li><a href="/docs">دليل الاستخدام</a></li>
+                <li><a href="/features">المميزات</a></li>
+                <li><a href="/troubleshooting">حل المشاكل</a></li>
+                <li><a href="https://github.com/tamerahmed166/ATH">GitHub Repository</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Redirect to home after 10 seconds
+        setTimeout(function() {
+            window.location.href = '/';
+        }, 10000);
+        
+        // Add click tracking
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                console.log('404 page: User clicked', e.target.href);
+            }
+        });
+    </script>
+</body>
+</html>

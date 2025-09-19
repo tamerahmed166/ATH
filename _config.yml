@@ -1,0 +1,97 @@
+# GitHub Pages Configuration
+title: "📱 Portfolio Tracker - متتبع المحفظة المالية"
+description: "تطبيق Flutter بسيط يركز على تتبع المحفظة المالية والتنبيهات عند الوصول لأعلى سعر تاريخي (ATH) للأسهم والنفط والذهب والعملات"
+author: "Tamer Ahmed"
+email: "tamerahmed166@gmail.com"
+url: "https://tamerahmed166.github.io"
+baseurl: "/ATH"
+
+# GitHub Pages settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Site settings
+lang: ar
+dir: rtl
+timezone: Asia/Riyadh
+
+# Navigation
+navigation:
+  - title: "🏠 الرئيسية"
+    url: "/"
+  - title: "📚 الوثائق"
+    url: "/docs"
+  - title: "🚀 البدء السريع"
+    url: "/quick-start"
+  - title: "📱 المميزات"
+    url: "/features"
+  - title: "🔧 حل المشاكل"
+    url: "/troubleshooting"
+
+# Social links
+social:
+  - name: "GitHub"
+    url: "https://github.com/tamerahmed166"
+  - name: "LinkedIn"
+    url: "https://linkedin.com/in/tamerahmed166"
+  - name: "Email"
+    url: "mailto:tamerahmed166@gmail.com"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Exclude files
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - .github/
+  - android/
+  - ios/
+  - lib/
+  - scripts/
+  - pubspec.yaml
+  - firebase_options.dart
+  - "*.bat"
+  - "*.md"
+
+# Include files
+include:
+  - _pages
+  - _posts
+  - _data
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+  posts:
+    output: true
+    permalink: /:collection/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "doc"

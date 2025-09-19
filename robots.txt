@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tamerahmed166.github.io/ATH/sitemap.xml
+
+# Disallow certain paths
+Disallow: /android/
+Disallow: /ios/
+Disallow: /lib/
+Disallow: /scripts/
+Disallow: /.github/
+Disallow: /pubspec.yaml
+Disallow: /firebase_options.dart
+Disallow: /*.bat
+Disallow: /*.md
+
+# Allow important files
+Allow: /README.md
+Allow: /LICENSE
+Allow: /index.html
+Allow: /assets/
+Allow: /_layouts/
+Allow: /_config.yml
